@@ -42,9 +42,23 @@ You can adjust the following settings in the LM Studio plugin sidebar:
 
 ## 🛠️ Installation
 
-1.  Open **LM Studio**.
-2.  Go to the **Plugins** tab.
-3.  (Instructions for installing a local plugin or from a repository would go here once published).
+There are multiple ways to install this plugin:
+
+### 1. One-Click Install
+Visit the plugin page and click **"Run in LM Studio"**:  
+[https://lmstudio.ai/richardbenedikt/web-search](https://lmstudio.ai/richardbenedikt/web-search)
+
+### 2. CLI Installation
+Use the `lms` CLI to install this plugin directly:
+```bash
+lms get richardbenedikt/web-search
+```
+
+### 3. For Developers
+To clone the plugin's metadata for local development:
+```bash
+lms clone richardbenedikt/web-search
+```
 
 ## 📄 License
 
