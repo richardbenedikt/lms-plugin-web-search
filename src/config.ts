@@ -12,7 +12,7 @@ export const configSchematics = createConfigSchematics()
 			int: true,
 			slider: {
 				step: 1,
-				min: 1,
+				min: 0,
 				max: 10,
 			},
 		},
