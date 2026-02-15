@@ -1,6 +1,6 @@
 {
   "name": "lms-plugin-web-search",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "LM Studio plugin for searching the web",
   "main": "dist/index.js",
   "scripts": {
@@ -15,10 +15,13 @@
   "license": "MIT",
   "dependencies": {
     "@lmstudio/sdk": "^1.3.0",
+    "@mozilla/readability": "^0.5.0",
+    "jsdom": "^24.0.0",
     "typescript": "^5.9.3",
     "zod": "3.24.1"
   },
   "devDependencies": {
-    "@types/node": "^20.14.8"
+    "@types/node": "^20.14.8",
+    "@types/jsdom": "^21.1.6"
   }
 }

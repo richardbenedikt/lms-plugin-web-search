@@ -7,14 +7,16 @@ Equip your local LLM with the ability to search the web, find images, and read w
 ## ✨ Features
 
 ### 🔍 Web Search (DuckDuckGo)
-Performs privacy-friendly searches to find current information, news, and references.
+Performs searches using DuckDuckGo to find current information, news, and references.
+- **Temporal Awareness:** Injects the current date into the context, allowing the model to understand relative time (e.g., "yesterday", "last week").
 - **Optimized for LLMs:** The tool definition is tuned to prevent "hallucinated calls" where models might try to "search" a URL instead of visiting it.
 - **Guardrails:** Built-in logic rejects URL inputs for search queries, guiding the model to use the correct tool immediately.
 
-### 📖 Visit Website (Scraper)
+### 📖 Visit Website (Smart Reader)
 Allows the assistant to "read" the actual content of a web page.
-- **Content Extraction:** Fetches HTML and converts it to clean, readable text.
-- **Noise Reduction:** Automatically removes scripts, styles, and ads to focus on the main content.
+> **Privacy Note:** This tool makes direct network requests to the target URLs from your machine. Your IP address will be visible to the websites visited.
+- **Smart Extraction:** Uses Mozilla's Readability engine to extract the main article content, ignoring navigation, footers, and cookie banners.
+- **Mandatory Citations:** Automatically instructs the model to cite the source URL in its final answer.
 - **Safety:** Truncates extremely long pages (max 20,000 characters) to fit within context windows.
 
 ### 🖼️ Image Search
@@ -27,9 +29,9 @@ Once enabled in LM Studio, you can interact with the tools naturally.
 
 **Example Workflow:**
 1.  **User:** "What are the latest specs for the Nintendo Switch 2?"
-2.  **Model:** *Uses `Web Search` tool for "Nintendo Switch 2 specs"*
-5.  **Model:** *Uses `Visit Website` tool on the specific URL found*
-6.  **Model:** "According to the article, the specs are..."
+2.  **Model:** *Uses `web_search` tool for "Nintendo Switch 2 specs"*
+3.  **Model:** *Uses `visit_website` tool on the specific URL found*
+4.  **Model:** "According to [Source URL], the specs are..."
 
 ## ⚙️ Configuration
 

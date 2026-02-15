@@ -84,11 +84,15 @@ export const createWebSearchTool = (ctl: ToolsProviderController, waitIfNeeded: 
 			if (links.length === 0) {
 				return "No web pages found for the query.";
 			}
+
+			const currentDate = new Date().toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
 			status(`Found ${links.length} web pages.`);
 			return {
 				candidates: links,
+				current_date: currentDate,
 				status: "incomplete",
-				system_instruction: "You have found potential links. If they look relevant, you MUST call 'visit_website' on the best URL to read the content. If they are not relevant, call 'web_search' again with a different query. Do NOT answer based on titles alone.",
+				system_instruction: `Current Date: ${currentDate}. You have found potential links. To provide a verified and comprehensive answer, you should visit multiple relevant URLs. If the links are not relevant, call 'web_search' again with a different query. Do NOT answer based on titles alone. You MUST cite the source URLs in your final answer.`,
 			};
 		} catch (error: any) {
 			if (error instanceof DOMException && error.name === "AbortError") {
